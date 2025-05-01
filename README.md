@@ -54,6 +54,7 @@ The system filters and ranks movies based on:
 📁 File Structure
 
 .
+
 ├── app.py                 # Main Streamlit app
 
 ├── tmdb_5000_movies.csv   # Movie metadata
