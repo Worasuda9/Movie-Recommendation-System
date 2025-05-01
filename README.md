@@ -34,12 +34,12 @@ A user-friendly Streamlit web application that recommends movies based on metada
 
 📦 Installation
 1. Clone the repository:
-  git clone https://github.com/your-username/movie-recommender-tmdb5000.git
-  cd movie-recommender-tmdb5000
+- git clone https://github.com/Worasuda9/movie-recommendation-system.git
+- cd movie-recommendation-system
 2. Install dependencies:
-  pip install -r requirements.txt
+- pip install -r requirements.txt
 3. Run the app:
-  streamlit run app.py
+- streamlit run app.py
 
 ⚠️ Note: You must include a valid TMDB API key in the script (TMDB_API_KEY). Get yours from TMDB Developer API.
 🧠 Recommendation Logic
@@ -53,8 +53,11 @@ The system filters and ranks movies based on:
 📁 File Structure
 .
 ├── app.py                 # Main Streamlit app
+
 ├── tmdb_5000_movies.csv   # Movie metadata
+
 ├── tmdb_5000_credits.csv  # Cast and crew information
+
 └── requirements.txt       # Python dependencies
 
 👨‍💻 Authors
