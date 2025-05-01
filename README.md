@@ -40,6 +40,7 @@ A user-friendly Streamlit web application that recommends movies based on metada
   pip install -r requirements.txt
 3. Run the app:
   streamlit run app.py
+
 ⚠️ Note: You must include a valid TMDB API key in the script (TMDB_API_KEY). Get yours from TMDB Developer API.
 🧠 Recommendation Logic
 
@@ -48,13 +49,13 @@ The system filters and ranks movies based on:
 - Overview keyword match (case-insensitive)
 - Year range
 - Sorted by IMDb vote average
-- 
+  
 📁 File Structure
 .
 ├── app.py                 # Main Streamlit app
 ├── tmdb_5000_movies.csv   # Movie metadata
 ├── tmdb_5000_credits.csv  # Cast and crew information
 └── requirements.txt       # Python dependencies
-👨‍💻 Authors
 
+👨‍💻 Authors
 ITCS227 Introduction to Data Science: Group Project - Faculty of ICT, Mahidol University
