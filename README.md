@@ -42,6 +42,7 @@ A user-friendly Streamlit web application that recommends movies based on metada
 - streamlit run app.py
 
 ⚠️ Note: You must include a valid TMDB API key in the script (TMDB_API_KEY). Get yours from TMDB Developer API.
+
 🧠 Recommendation Logic
 
 The system filters and ranks movies based on:
@@ -51,6 +52,7 @@ The system filters and ranks movies based on:
 - Sorted by IMDb vote average
   
 📁 File Structure
+
 .
 ├── app.py                 # Main Streamlit app
 
