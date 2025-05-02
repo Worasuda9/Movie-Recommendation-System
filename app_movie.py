@@ -1,20 +1,20 @@
 # --- Import Required Libraries ---
 import streamlit as st  # Web app framework
 import pandas as pd  # Data handling
-import ast  # Safe evaluation of stringified Python literals (e.g., lists, dicts)
+import ast  # Safe evaluation of stringified Python literals
 import requests  # For API calls to fetch movie posters
 import matplotlib.pyplot as plt  # Plotting
 import seaborn as sns  # Enhancing plots
 
-# --- API Key for TMDB Poster Fetching ---
-TMDB_API_KEY = "22b444fe4c83abab740d8a912c447ec9"
+# API Key for TMDB Poster Fetching
+TMDB_API_KEY = "API_KEY" #Get API key from the report (In 7.Code appendix, the line after github link)
 
 # --- Streamlit Page Configuration ---
 st.set_page_config(page_title="Movie Recommender (TMDB 5000)", layout="wide")
 st.title("🎬 Movie Recommender Based on Metadata (TMDB 5000)")
 st.caption("Filter movies by genre, release year, and keyword in overview.")
 
-# --- Load and Process Dataset ---
+# Load and Process Dataset
 @st.cache_data
 def load_data():
     # Load movie and credit metadata
@@ -28,7 +28,7 @@ def load_data():
     df = df[df['release_date'].notnull()]
     df['release_year'] = pd.to_datetime(df['release_date'], errors='coerce').dt.year
 
-    # --- Helper Function: Parse genres from string to list ---
+    # Parse genres from string to list
     def parse_genres(genre_str):
         try:
             genres = ast.literal_eval(genre_str)
@@ -38,7 +38,7 @@ def load_data():
 
     df['genres_list'] = df['genres'].apply(parse_genres)
 
-    # --- Helper Function: Extract director name from crew ---
+    # Extract director name from crew
     def extract_director(crew_str):
         try:
             crew = ast.literal_eval(crew_str)
@@ -48,7 +48,7 @@ def load_data():
         except:
             return None
 
-    # --- Helper Function: Extract main actor from cast ---
+    # Extract main actor from cast
     def extract_main_actor(cast_str):
         try:
             cast = ast.literal_eval(cast_str)
@@ -65,7 +65,7 @@ def load_data():
 # Load the cleaned DataFrame
 df = load_data()
 
-# --- Visual Summary: Genre and Year Distribution ---
+# Visual Summary: Genre and Year Distribution
 st.markdown("<h2 style='font-size:20px;'>📈 Movie Data Overview</h2>", unsafe_allow_html=True)
 col1, col2 = st.columns(2)
 
@@ -93,7 +93,7 @@ with col2:
     ax2.tick_params(axis='y', labelsize=6)
     st.pyplot(fig2, bbox_inches='tight', use_container_width=False)
 
-# --- Helper: Get Poster URL from TMDB API ---
+# Get Poster URL from TMDB API
 @st.cache_data
 def get_poster_url(title):
     url = "https://api.themoviedb.org/3/search/movie"
@@ -105,7 +105,7 @@ def get_poster_url(title):
     except:
         return None
 
-# --- Sidebar Filters ---
+# Sidebar Filters
 st.sidebar.header("🔍 Filter Options")
 
 # Dropdown for genre selection
@@ -123,7 +123,7 @@ keyword = st.sidebar.text_input("Enter Keyword (from Overview)")
 # Slider for number of recommended results
 top_n = st.sidebar.slider("Number of Results", 5, 50, 10)
 
-# --- Recommendation Logic ---
+# Recommendation Logic
 def recommend_movies(genre=None, year=None, keyword=None, top_n=10):
     results = df.copy()
 
@@ -145,7 +145,7 @@ def recommend_movies(genre=None, year=None, keyword=None, top_n=10):
     results = results.sort_values(by='vote_average', ascending=False)
     return results.head(top_n)
 
-# --- Display Recommended Movies ---
+# Display Recommended Movies
 st.header("🎥 Recommended Movies")
 
 # Apply filters and get results
