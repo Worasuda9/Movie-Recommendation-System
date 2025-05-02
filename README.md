@@ -39,7 +39,7 @@ A user-friendly Streamlit web application that recommends movies based on metada
 2. Run the app:
 - streamlit run app.py
 
-⚠️ Note: You must include a valid TMDB API key in the script (TMDB_API_KEY). Get yours from TMDB Developer API.
+⚠️ Note: You must include a valid TMDB API key in the script (TMDB_API_KEY).
 
 🧠 Recommendation Logic
 
