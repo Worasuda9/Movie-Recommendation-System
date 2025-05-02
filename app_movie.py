@@ -1,4 +1,4 @@
-# --- Import Required Libraries ---
+# Import Required Libraries
 import streamlit as st  # Web app framework
 import pandas as pd  # Data handling
 import ast  # Safe evaluation of stringified Python literals
@@ -9,7 +9,7 @@ import seaborn as sns  # Enhancing plots
 # API Key for TMDB Poster Fetching
 TMDB_API_KEY = "API_KEY" #Get API key from the report (In 7.Code appendix, the line after github link)
 
-# --- Streamlit Page Configuration ---
+# Streamlit Page Configuration
 st.set_page_config(page_title="Movie Recommender (TMDB 5000)", layout="wide")
 st.title("🎬 Movie Recommender Based on Metadata (TMDB 5000)")
 st.caption("Filter movies by genre, release year, and keyword in overview.")
